@@ -1,0 +1,46 @@
+//Math objects
+let num1 = 100.98
+let roundNum1 = Math.round(num1);
+console.log(roundNum1);
+
+//floor
+let num2 = 23.7
+let floorNum = Math.floor(num2)
+console.log(floorNum);
+
+//ceil
+let num3 = 33.3
+let ceilNum = Math.ceil(num3);
+console.log(ceilNum);
+
+// let num4 = ;
+let min = Math.min(1, 44, 55, 66, 0);
+console.log(min);
+
+//max
+let max = Math.max(1, 44, 55, 66, 0);
+console.log(max);
+
+//pow
+let num5 = 4;
+let power = Math.pow(num5, 10);
+console.log(power);
+
+//abs
+let num6 = -1160;
+let abs = Math.abs(num6);
+console.log(abs);
+
+//sqrt
+let num7 = 1500;
+let sqrt = Math.sqrt(num7);
+console.log(sqrt);
+
+//random
+let num8 = 10;
+let randomNum = Math.random() * 100;
+console.log(randomNum);
+
+//random
+let random10 = Math.floor(Math.random() * 10e10);
+console.log(random10);
