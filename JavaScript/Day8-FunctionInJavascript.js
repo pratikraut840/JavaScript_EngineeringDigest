@@ -38,7 +38,6 @@ let device = division5(50);
 console.log(device);
 
 //6. Higher order function
-
 let longAdd = (a, b, c, d) => {
     return a + b + c + d;
 }
@@ -50,6 +49,17 @@ let longFunction = (longAdd, longDivi) => {
     return longAdd / longDivi;
 }
 console.log(longFunction(8, 8));
+
+//Higher order function example2
+let additionOfTwoNum = (a,b) => a+b;
+
+function higherOrderFun(fun){
+    fun();
+}
+
+higherOrderFun(()=>{
+    console.log("higherOrderFun2 :"+(additionOfTwoNum,6,8))
+})
 
 //7. spread operator
 // let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
