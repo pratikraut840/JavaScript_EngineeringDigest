@@ -14,6 +14,7 @@ console.log(s3);
 let isSunday = true;//boolean
 console.log(isSunday);
 
+debugger;
 let user = {
     name: 'Pratik', //object
     company: 'Impetus',
