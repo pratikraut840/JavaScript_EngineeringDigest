@@ -1,51 +1,59 @@
-//1. Find the missing numbers from array
+// ==================================================
+// 1. Find the missing numbers from an array
+// ==================================================
 let array1 = [1, 2, 3, 5];
 let count = 10;
-let num = 0;
-
-let output = [];
+let missingNumbers = [];
 
 for (let i = 1; i <= count; i++) {
     if (!array1.includes(i)) {
-        output.push(i);
+        missingNumbers.push(i);
     }
 }
-console.log(output)
 
-//2.Replace underscores with space and capitalize word
+console.log('Missing numbers:', missingNumbers); // [4, 6, 7, 8, 9, 10]
+
+
+// ==================================================
+// 2. Replace underscores with spaces and capitalize each word
+// ==================================================
 let string1 = 'ui_dev_guide';
 let string2 = 'contact_details';
 
+const underCapital = (string) => {
+    // Split by underscores
+    let words = string.split('_');
+    console.log('Split words:', words);
 
-let underCapital = (string) => {
-    let normalStr = string.split('_');
-    console.log(normalStr);
-
-    //split array
-    //loop
-    //make first letter capital
-    //concat string by join
-
-    for (let i = 0; i < normalStr.length; i++) {
-        //modifying every first letter
-        normalStr[i] = normalStr[i].charAt(0).toUpperCase() + normalStr[i].slice(1);
-
+    // Capitalize first letter of each word
+    for (let i = 0; i < words.length; i++) {
+        words[i] = words[i].charAt(0).toUpperCase() + words[i].slice(1);
     }
-    console.log(normalStr);
+    console.log('Capitalized words:', words);
 
-    let joinNormalString = normalStr.join(' ');
-    console.log(joinNormalString);
-}
-underCapital(string1);
+    // Join words back with spaces
+    let finalString = words.join(' ');
+    console.log('Final string:', finalString);
+};
 
-//3. Replace space with underscore
+underCapital(string1); // Output: "Ui Dev Guide"
+underCapital(string2); // Output: "Contact Details"
+
+
+// ==================================================
+// 3. Replace spaces with underscores (snake_case conversion)
+// ==================================================
 let s1 = 'ui dev guide';
 
-let split = s1.split(' ');
-console.log(split);
+// Split by spaces
+let wordsArray = s1.split(' ');
+console.log('Split words:', wordsArray);
 
-for (let i = 0; i < split.length; i++) {
-    split[i] = split[i].toLowerCase();
+// Convert all words to lowercase (optional if input may have caps)
+for (let i = 0; i < wordsArray.length; i++) {
+    wordsArray[i] = wordsArray[i].toLowerCase();
 }
-let finalSplit = split.join('_');
-console.log(finalSplit);
+
+// Join words with underscores
+let finalSnakeCase = wordsArray.join('_');
+console.log('Snake case string:', finalSnakeCase); // "ui_dev_guide"

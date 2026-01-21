@@ -1,18 +1,26 @@
-//Arithmetic Operator
+// ==================================================
+// Arithmetic Operators in JavaScript
+// ==================================================
 
 let a = 100;
 let b = 300;
-let c = a + b; //addition
+
+// Addition
+let c = a + b;
 console.log(c);
 
-let d = a - b; //subtraction
+// Subtraction
+let d = a - b;
 console.log(d);
 
-let e = a * b; //multiplication
+// Multiplication
+let e = a * b;
 console.log(e);
 
-let f = a / b; //division
+// Division
+let f = a / b;
 console.log(f);
 
-let g = a % b; //remainder
+// Modulus (remainder)
+let g = a % b;
 console.log(g);

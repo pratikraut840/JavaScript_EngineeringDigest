@@ -1,35 +1,48 @@
-// DataTypes
-let num1 = 10; //number
+// ==================================================
+// Data Types in JavaScript
+// ==================================================
+
+// Number
+let num1 = 10;
 console.log(num1);
 
-let s1 = "India";//string
+// String
+let s1 = "India";
 console.log(s1);
 
-let s2 = 'Australia';//string
+let s2 = 'Australia';
 console.log(s2);
 
-let s3 = `America`;//string
+let s3 = `America`;
 console.log(s3);
 
-let isSunday = true;//boolean
+// Boolean
+let isSunday = true;
 console.log(isSunday);
 
-debugger;
+// Object
 let user = {
-    name: 'Pratik', //object
+    name: 'Pratik',
     company: 'Impetus',
-    language: `English`
-}
+    language: 'English'
+};
 console.log(user);
 
-let array1 = [1, 2, 3, 4];//array
+// Array
+let array1 = [1, 2, 3, 4];
 console.log(array1);
 
-let phone = null;//null
+// Null
+let phone = null;
 console.log(phone);
 
-let mobile;//undefined
+// Undefined
+let mobile;
 console.log(mobile);
 
-let int1 = 23835435983457345343454; //bigint
+// BigInt
+let int1 = 23835435983457345343454n; // 'n' suffix denotes BigInt
 console.log(int1);
+
+// Debugger statement (pauses execution in dev tools)
+debugger;

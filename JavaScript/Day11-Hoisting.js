@@ -1,17 +1,27 @@
-//hoisting
+// ==================================================
+// Hoisting in JavaScript
+// ==================================================
 
-//Hoisting in js is declaring the variable and functions to their top scope allowing them to use before they actually declared in the code
-//Need to declare variable/function first only and then use them
+// Hoisting in JavaScript means variables and function
+// declarations are moved to the top of their scope
+// during the compilation phase, allowing them to be
+// referenced before they are declared in the code.
 
-// console.log(a); //called first
-// let a = 10; //declare on bottom scope
+// --------------------------------------------------
+// Example (commented to avoid runtime error)
+// --------------------------------------------------
 
+// console.log(a); // Called before declaration
+// let a = 10;     // Declared later
 
-// during compilation it runs like this
+// During compilation, JavaScript treats it like this:
 // let a;
-// console.log(a);
+// console.log(a); // undefined
 // a = 10;
 
+// --------------------------------------------------
+// Valid example
+// --------------------------------------------------
 
 let b = 90;
-console.log(b);//
+console.log(b);

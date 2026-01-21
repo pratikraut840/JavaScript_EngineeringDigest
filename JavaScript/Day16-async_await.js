@@ -1,49 +1,66 @@
-//async and await are keywords in javascript
-// Async function always return a promise
-// await pauses the execution of its surrounding async function until the promise is settled
-// await can only be used inside the async function
+// ==================================================
+// Async / Await Example
+// ==================================================
 
-function api(id) {
+// async and await are keywords in JavaScript
+// Async functions always return a Promise
+// await pauses execution until the Promise is settled
+// await can only be used inside an async function
+
+function getAccountBalance(accountId) {
     return new Promise((resolve, reject) => {
+        // 2 seconds delay
         setTimeout(() => {
-            console.log('getting data... ' + id);
-            resolve('Promise resolved')
-        }, 2000)
+            console.log('getting balance... ' + accountId);
+            resolve('promise resolve for getAccountBalance()');
+            // reject('promise reject for getAccountBalance()');
+        }, 2000);
     });
 }
 
-// Async function always return a promise
-async function getApiData() {
-    // await can only be used inside the async function
-    console.log('calling getApiData NormalWay')
-    await api(1);//1st
-    await api(2);//2nd
-    await api(3);//3rd
-}
-getApiData();
+// --------------------------------------------------
+// Async function example
+// --------------------------------------------------
 
-//IIFE: Immediately Invoked Function Expression
-// An IIFE is JavaScript function that runs as soon as it is defined
-// standard IIFE
+async function asyncBalance() {
+    // await can only be used inside an async function
+    console.log('calling getAccountBalance NormalWay');
+    await getAccountBalance(1); // 1st
+    await getAccountBalance(2); // 2nd
+    await getAccountBalance(3); // 3rd
+}
+
+// Calling async function
+asyncBalance();
+
+// ==================================================
+// IIFE (Immediately Invoked Function Expression)
+// An IIFE is a function that runs as soon as it is defined
+// ==================================================
+
+// Standard IIFE
 (function () {
     // statements…
 })();
 
-// arrow function variant
+// Arrow function IIFE
 (() => {
     // statements…
 })();
 
-// async IIFE
+// Async IIFE
 (async () => {
     // statements…
 })();
 
-//calling getApiData NormalWay
+// --------------------------------------------------
+// Calling getAccountBalance using async IIFE
+// --------------------------------------------------
+
 (async function () {
     // await can only be used inside the async function
-    console.log('calling getApiData by IIFE')
-    await api(1);//1st
-    await api(2);//2nd
-    await api(3);//3rd
-})()
+    console.log('calling getAccountBalance by IIFE');
+    await getAccountBalance(1); // 1st
+    await getAccountBalance(2); // 2nd
+    await getAccountBalance(3); // 3rd
+})();
