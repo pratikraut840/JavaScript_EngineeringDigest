@@ -2,8 +2,19 @@
 // Promise Chaining Example
 // Promise chaining is a cleaner way to handle async operations compared to nested callbacks
 // ==================================================
+//normal function
+// function getData(dataId){
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             console.log("getting data for " + dataId);
+//             resolve("success");
+//             reject("failed");
+//         }, 3000);
+//     });
+// };
 
-const getData = (dataId) => {
+//advanced arrow function
+let getData = (dataId)=>{
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             console.log("getting data for " + dataId);

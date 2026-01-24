@@ -5,7 +5,6 @@
 // Creating an array
 let days = ['Monday', 'Tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
 console.log(days);
-
 // --------------------------------------------------
 // Array length
 // --------------------------------------------------
