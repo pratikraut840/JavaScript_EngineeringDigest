@@ -1,2 +1,0 @@
-# JavaScript_EngineeringDigest
-JavaScript_EngineeringDigest
