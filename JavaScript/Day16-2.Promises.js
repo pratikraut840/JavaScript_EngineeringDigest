@@ -32,7 +32,7 @@ getDevices(1);
 const getPromise = () => {
     return new Promise((resolve, reject) => {
         resolve('Promise got resolved | resolved msg');
-        reject('Promise got rejected | reject msg');
+        // reject('Promise got rejected | reject msg');
     });
 };
 

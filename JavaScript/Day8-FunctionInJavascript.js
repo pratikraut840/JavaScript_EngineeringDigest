@@ -7,7 +7,7 @@
 // --------------------------------------------------
 
 function addition() {
-    console.log("This is non parameterized function");
+    console.log("1️⃣ Non-parameterized Function: No arguments, no return");
 }
 
 addition();
@@ -18,7 +18,7 @@ addition();
 
 function add(a, b) {
     let sum = a + b;
-    console.log(sum);
+    console.log(`2️⃣ add(${a}, ${b}) → Sum = ${sum}`);
 }
 
 add(4, 8);
@@ -34,7 +34,7 @@ function sub(a, b, c) {
 }
 
 let subtract = sub(8, 5, 5);
-console.log(subtract);
+console.log(`3️⃣ sub(8, 5, 5) → Result = ${subtract}`);
 
 // --------------------------------------------------
 // 4. Arrow Function
@@ -45,7 +45,7 @@ let multiply = (a, b) => {
 };
 
 let mul = multiply(7, 7);
-console.log(mul);
+console.log(`4️⃣ Arrow Function multiply(7, 7) → Result = ${mul}`);
 
 // --------------------------------------------------
 // 5. Default value of function argument
@@ -56,7 +56,7 @@ let division5 = (value = 100) => {
 };
 
 let device = division5(50);
-console.log(device);
+console.log(`5️⃣ Default Parameter division5(50) → Result = ${device}`);
 
 // --------------------------------------------------
 // 6. Higher Order Functions
@@ -73,7 +73,7 @@ function higherOrder(add, a, b) {
     return add(a, b);
 }
 
-console.log(higherOrder(add1, 6, 7));
+console.log(`6️⃣ HOF (Callback) higherOrder(add1, 6, 7) → Result = ${higherOrder(add1, 6, 7)}`);
 
 // HigherOrderFunction 2:
 // Takes function as argument and returns a function
@@ -88,7 +88,7 @@ function higherOrder2() {
     };
 }
 
-console.log(higherOrder2()(10, 8));
+console.log(`7️⃣ HOF (Function Returning Function) higherOrder2()(10, 8) → Result = ${higherOrder2()(10, 8)}`);
 
 // Dynamic higher-order function
 function higherOrder3(fn) {
@@ -97,7 +97,7 @@ function higherOrder3(fn) {
     };
 }
 
-console.log(higherOrder3(sub)(10, 8));
+console.log(`8️⃣ Dynamic HOF higherOrder3(sub)(10, 8) → Result = ${higherOrder3(sub)(10, 8)}`);
 
 // Higher order function example 2
 
@@ -108,7 +108,7 @@ function higherOrderFun(fun) {
 }
 
 higherOrderFun(() => {
-    console.log("higherOrderFun2 :" + (additionOfTwoNum, 6, 8));
+    console.log(`9️⃣ HOF Callback Execution → Result = ${additionOfTwoNum(6, 8)}`);
 });
 
 // --------------------------------------------------
@@ -126,7 +126,7 @@ function sumAddi(...nums) {
     return sum;
 }
 
-console.log(sumAddi(10, 20, 30));
+console.log(`🔟 Rest Operator sumAddi(10, 20, 30) → Sum = ${sumAddi(10, 20, 30)}`);
 
 // Spread operator example
 let list1 = [1, 2, 3];
@@ -134,8 +134,8 @@ let list2 = [4, 5, 6];
 
 // Direct array nesting
 let list3 = [list1, list2];
-console.log(list3);
+console.log("1️⃣1️⃣ Nested Array (Without Spread):", list3);
 
 // Spread operator flattens the arrays
 let list4 = [...list1, ...list2];
-console.log(list4);
+console.log("1️⃣2️⃣ Spread Operator Result:", list4);

@@ -2,138 +2,125 @@
 // Callback Functions in JavaScript
 // ==================================================
 
-// Function 1
+// A callback function is a function passed as an argument
+// to another function, to be executed later.
+
+// --------------------------------------------------
+// Example: Basic callbacks
+// --------------------------------------------------
+
 function processData(Name) {
-    console.log('Processing data...' + Name);
+    console.log('Processing data: ' + Name);
 }
 
-// Function 2
 function deleteData(Name) {
-    console.log('Deleting data...' + Name);
+    console.log('Deleting data: ' + Name);
 }
 
-// Callback function handler
+// Higher-order function that accepts a callback
 function output(funcName, value) {
-    funcName(value);
+    funcName(value); // Execute the callback
 }
 
 // Function call with callback
-output(deleteData, 'PRATIK');
+output(deleteData, 'PRATIK'); 
+// Output: Deleting data: PRATIK
 
 // ==================================================
-// Array callback examples
+// Array Callback Methods
 // ==================================================
 
 let list1 = [55, 44, 33, 66, 77, 22, 11];
 
-// forEach
+// forEach → executes a function for each array element
 list1.forEach((element) => {
-    console.log('All array elements are ' + element);
+    console.log('forEach element:', element);
 });
 
-// map
-let emptyList = [];
-let mapList = list1.map((element) => {
-    if (element % 22 == 0) {
-        emptyList.push(element);
-    }
-    return emptyList;
-});
-console.log(emptyList);
+// map → transforms each element into a new array
+let divisibleBy22 = list1.map((element) => {
+    return element % 22 === 0 ? element : null;
+}).filter((e) => e !== null); // remove nulls
+console.log('map divisible by 22:', divisibleBy22);
 
-// filter
-let emptyList2 = [];
-let filterFun = list1.filter((element) => {
-    if (element % 2 == 0) {
-        emptyList2.push(element);
-    }
-    return emptyList2;
-});
-console.log(emptyList2);
+// filter → creates a new array with elements that pass a test
+let evenNumbers = list1.filter((element) => element % 2 === 0);
+console.log('filter even numbers:', evenNumbers);
 
-// reduce
+// reduce → reduces array to a single value using a callback
 let list3 = [3, 4, 4, 7, 8, 2];
-
 let reducedValue = list3.reduce((accumulator, current) => {
-    return accumulator + current * 10 | 0;
-});
-console.log(reducedValue);
+    return accumulator + current * 10; // accumulate sum
+}, 0);
+console.log('reduce result:', reducedValue);
 
-// find
-let find = list3.find((element) => {
-    return element == 3;
-});
-console.log(find);
+// find → returns the first element that matches the condition
+let findThree = list3.find((element) => element === 3);
+console.log('find element 3:', findThree);
 
-// every
-let every = list3.every((element) => {
-    if (element === 3) {
-        return element;
-    }
-});
-console.log(every);
+// every → checks if all elements satisfy a condition
+let allAre3 = list3.every((element) => element === 3);
+console.log('every element === 3:', allAre3);
 
-// some
-let some = list3.some((element) => {
-    if (element == 3) {
-        return element;
-    }
-});
-console.log(some);
+// some → checks if at least one element satisfies a condition
+let someAre3 = list3.some((element) => element === 3);
+console.log('some element === 3:', someAre3);
 
-// sort
-let sort = list3.sort((a, b) => {
-    return b - a;
-});
-console.log(sort);
+// sort → sorts array elements (descending order)
+let sortedList = list3.sort((a, b) => b - a);
+console.log('sorted list descending:', sortedList);
 
 // ==================================================
-// Nested callback (Callback Hell example)
+// Nested callbacks (Callback Hell Example)
 // ==================================================
 
+// Simulate asynchronous user fetching
 function getUsers(id, getNextUser) {
-    console.log('loading user...');
+    console.log('Loading user with id:', id);
     setTimeout(() => {
-        if (getNextUser) {
-            getNextUser();
-        }
+        console.log('User loaded:', id);
+        if (getNextUser) getNextUser();
     }, 2000);
 }
 
-// Callback hell
+// Nested callbacks → “callback hell”
 getUsers(1, () => {
-    console.log('getting user 1...');
     getUsers(2, () => {
-        console.log('getting user 2...');
         getUsers(3, () => {
-            console.log('loading user 3');
+            console.log('All users loaded');
         });
     });
 });
 
 // ==================================================
-// Promise examples
+// Promises
 // ==================================================
 
+// A Promise represents an asynchronous operation
+// that can either resolve (success) or reject (failure)
+
 let promObj = new Promise((resolve, reject) => {
-    resolve(console.log('resolve'));
-    reject(console.log('reject'));
+    resolve('Promise resolved');
+    // reject('Promise rejected'); // won't run after resolve
 });
 
-function getDevices(id, nextDevice) {
+promObj.then((message) => {
+    console.log('Promise then:', message);
+}).catch((err) => {
+    console.log('Promise catch:', err);
+});
+
+// Async function with promise
+function getDevices(id) {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
-            console.log('getting devices');
-            resolve(console.log('promise resolved'));
-
-            if (nextDevice) {
-                nextDevice();
-            }
+            console.log('Getting device with id:', id);
+            resolve('Device loaded: ' + id);
         }, 2000);
     });
 }
 
 // Calling promise-based function
-getDevices(1, () => {
-    console.log('getting device1...');
+getDevices(1).then((message) => {
+    console.log(message);
 });

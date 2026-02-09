@@ -3,8 +3,11 @@
 // ==================================================
 
 // --------------------------------------------------
-// Equality operators
+// Equality Operators
 // --------------------------------------------------
+
+// == (Loose Equality) → Compares values after type conversion
+// === (Strict Equality) → Compares both value and data type
 
 let num1 = 2;
 let num2 = 4;
@@ -16,63 +19,80 @@ console.log(equality); // false
 let str1 = '5';
 let num3 = 7;
 
-console.log(str1 == num3);  // false
-console.log(str1 === num3); // false (strict equality)
+console.log(str1 == num3);  // false (type conversion allowed)
+console.log(str1 === num3); // false (type + value must match)
 
 // --------------------------------------------------
-// Type coercion examples
+// Type Coercion Examples
 // --------------------------------------------------
 
-// String + number → string concatenation
+// Type Coercion → JavaScript automatically converts one data type into another
+
+// String + number → Results in string concatenation
 let sum1 = str1 + num3;
-console.log(sum1);           // 55
+console.log(sum1);           // "57"
 console.log(typeof sum1);    // string
 
-// String - number → numeric subtraction
+// String - number → JavaScript converts string to number
 let sum2 = str1 - num3;
 console.log(sum2);           // -2
 console.log(typeof sum2);    // number
 
 // --------------------------------------------------
-// Not equal operators
+// Not Equal Operators
 // --------------------------------------------------
 
-console.log(str1 != num3);
-console.log(str1 !== num3);
+// !=  → Checks value inequality (with type conversion)
+// !== → Checks value and type inequality
+
+console.log(str1 != num3);   // true
+console.log(str1 !== num3);  // true
 
 // --------------------------------------------------
-// Relational operators
+// Relational Operators
 // --------------------------------------------------
 
-console.log(str1 > num3);  // false
-console.log(str1 < num3);  // false
-console.log(str1 >= num3); // false
-console.log(str1 <= num3); // false
+// >  Greater than
+// <  Less than
+// >= Greater than or equal to
+// <= Less than or equal to
+
+console.log(str1 > num3);  
+console.log(str1 < num3);  
+console.log(str1 >= num3); 
+console.log(str1 <= num3); 
 
 // ==================================================
 // Logical Operators
 // ==================================================
 
+// && (Logical AND) → True if both conditions are true
+// || (Logical OR)  → True if at least one condition is true
+// !  (Logical NOT) → Reverses the boolean result
+
 let num5 = 66;
 let num6 = 99;
 
-console.log((num5 == num6) && (num5 === num6));  // false
-console.log((num5 != num6) && (num5 >= num6));   // false
-console.log((num5 != num6) && (num5 <= num6));   // true
-console.log((num5 === num6) || (num5 <= num6));  // true
-console.log(!(num5 == num6) || (num5 >= num6));  // true
+console.log((num5 == num6) && (num5 === num6));  
+console.log((num5 != num6) && (num5 >= num6));   
+console.log((num5 != num6) && (num5 <= num6));   
+console.log((num5 === num6) || (num5 <= num6));  
+console.log(!(num5 == num6) || (num5 >= num6));  
 
 // ==================================================
 // Conditional Statements
 // ==================================================
 
+// if → Executes code if condition is true
+// else if → Checks another condition if previous is false
+// else → Executes when no condition is true
+
 let age = 45;
 
-// if...else if...else
 if (age >= 18 && age <= 40) {
     console.log("You are welcome, Happy evening");
 } else if (age >= 45) {
-    console.log("YOu are too old, Not preferred");
+    console.log("You are too old, Not preferred");
 } else {
     console.log("You are below age, not permitted");
 }
@@ -81,21 +101,24 @@ if (age >= 18 && age <= 40) {
 // Loops
 // ==================================================
 
-// for loop
+// for loop → Used when number of iterations is known
+
 let names = ['Pratik', 'Rajat', 'Sahil', 'Raja'];
 
 for (let i = 0; i <= names.length; i++) {
     console.log(`Chronological order names are ${names[i]}`);
 }
 
-// while loop
+// while loop → Executes while condition remains true
+
 let count = 0;
 while (count <= 5) {
     console.log('Print Hello');
     count++;
 }
 
-// do...while loop
+// do...while loop → Executes at least once even if condition is false
+
 let i = 10;
 do {
     console.log(`Executing do once ${i}`);
@@ -104,6 +127,8 @@ do {
 // --------------------------------------------------
 // break statement
 // --------------------------------------------------
+
+// break → Terminates the loop immediately
 
 for (let i = 0; i <= 10; i++) {
     if (i == 3) {
@@ -116,6 +141,8 @@ for (let i = 0; i <= 10; i++) {
 // continue statement
 // --------------------------------------------------
 
+// continue → Skips current iteration and continues with next
+
 for (let i = 0; i <= 5; i++) {
     if (i == 3) {
         continue;
@@ -124,8 +151,10 @@ for (let i = 0; i <= 5; i++) {
 }
 
 // ==================================================
-// switch statement
+// switch Statement
 // ==================================================
+
+// switch → Used to execute different blocks based on value
 
 let day = 'Monday';
 
@@ -154,8 +183,10 @@ switch (day) {
 }
 
 // --------------------------------------------------
-// Advanced switch (grouped cases)
+// Advanced switch (Grouped cases)
 // --------------------------------------------------
+
+// Grouped cases → Multiple values execute the same block
 
 let day1 = 'Monday';
 

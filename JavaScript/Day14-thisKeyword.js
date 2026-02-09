@@ -1,54 +1,70 @@
 // ==================================================
-// this Keyword Examples
+// this Keyword Examples in JavaScript
 // ==================================================
 
 // --------------------------------------------------
-// this using a regular function
-// Here, `this` refers to the object because it is a regular function
+// 1. this in a regular function (object method)
 // --------------------------------------------------
-
+// In a regular function, `this` refers to the object calling the function
 let person = {
     name: 'pratik',
     age: 33,
     greet: function () {
-        console.log('Hello using regular function ' + this.name); // person.name
+        console.log('Regular function → this.name: ' + this.name);
     }
 };
 
 // Method call
-person.greet(); // Hello using regular function pratik
+person.greet(); 
+// Output: Regular function → this.name: pratik
 
 // --------------------------------------------------
-// this using an arrow function
-// Here, `this` does NOT refer to the object because arrow functions
-// do not have their own `this`
+// 2. this in an arrow function
 // --------------------------------------------------
-
+// Arrow functions do NOT have their own `this`
+// They inherit `this` from the surrounding scope (lexical `this`)
+// Here, the surrounding scope is global → `this.name` is undefined
 let person2 = {
     name: 'naveen',
     age: 44,
     greet: () => {
-        console.log('Hello using arrow function ' + this.name);
+        console.log('Arrow function → this.name: ' + this.name);
     }
 };
 
-// Method call
-person2.greet(); // undefined
+person2.greet(); 
+// Output: Arrow function → this.name: undefined
 
 // --------------------------------------------------
-// this using arrow function inside a regular function
-// Arrow function inherits `this` from its surrounding scope
+// 3. Arrow function inside a regular function
 // --------------------------------------------------
-
+// Arrow function inherits `this` from the regular function scope
 let person3 = {
     name: 'Rajesh',
     age: 44,
-    greet: function inner() {
+    greet: function () {
         setTimeout(() => {
-            console.log('Hello using arrow function after timeout ' + this.name);
+            console.log('Arrow inside regular function → this.name: ' + this.name);
         }, 2000);
     }
 };
 
-// Method call
-person3.greet();
+person3.greet(); 
+// Output after 2 seconds: Arrow inside regular function → this.name: Rajesh
+
+// --------------------------------------------------
+// 4. Regular function inside setTimeout (classic case)
+// --------------------------------------------------
+// A regular function inside setTimeout has its own `this` (window/global object)
+let person4 = {
+    name: 'Sahil',
+    age: 25,
+    greet: function () {
+        setTimeout(function () {
+            console.log('Regular function in setTimeout → this.name: ' + this.name);
+        }, 2000);
+    }
+};
+
+person4.greet(); 
+// Output after 2 seconds: Regular function in setTimeout → this.name: undefined (in strict mode)

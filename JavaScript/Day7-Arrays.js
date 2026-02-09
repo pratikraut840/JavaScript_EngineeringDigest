@@ -2,54 +2,56 @@
 // Arrays in JavaScript
 // ==================================================
 
-// Creating an array
+// Creating an array → List of elements stored in a single variable
 let days = ['Monday', 'Tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
-console.log(days);
+console.log("Days Array:", days);
+
 // --------------------------------------------------
-// Array length
+// Array length → Returns number of elements in array
 // --------------------------------------------------
 
 let fruits = ['Apple', 'mango', 'grapes'];
 let fruitLength = fruits.length;
-console.log(fruitLength);
+console.log("Number of fruits:", fruitLength);
 
 // --------------------------------------------------
-// push() → add element at the end
+// push() → Adds element at the end of array
 // --------------------------------------------------
 
-let fruitPush = fruits.push('banana');
-console.log(fruits);
+fruits.push('banana');
+console.log("After push('banana') →", fruits);
 
 // --------------------------------------------------
-// unshift() → add element at the start
+// unshift() → Adds element at the start of array
 // --------------------------------------------------
 
-let unshiftFruits = fruits.unshift('kiwi');
-console.log(fruits);
+fruits.unshift('kiwi');
+console.log("After unshift('kiwi') →", fruits);
 
 // --------------------------------------------------
-// pop() → remove element from the end
+// pop() → Removes element from the end of array
 // --------------------------------------------------
 
-let popFruits = fruits.pop();
-console.log(fruits);
+fruits.pop();
+console.log("After pop() →", fruits);
 
 // --------------------------------------------------
-// shift() → remove element from the start
+// shift() → Removes element from the start of array
 // --------------------------------------------------
 
-let shiftFruits = fruits.shift();
-console.log(fruits);
+fruits.shift();
+console.log("After shift() →", fruits);
 
 // --------------------------------------------------
-// splice() → remove elements from a specific index
+// splice() → Remove elements from a specific index
+// splice(startIndex, deleteCount)
 // --------------------------------------------------
 
-let spliceFruits = fruits.splice(1, 2);
-console.log(fruits);
+fruits.splice(1, 2); // Removes 2 elements starting from index 1
+console.log("After splice(1, 2) →", fruits);
 
 // --------------------------------------------------
-// concat() → join arrays or values
+// concat() → Joins arrays or values to create a new array
 // --------------------------------------------------
 
 let concatFruits = fruits.concat(
@@ -59,45 +61,44 @@ let concatFruits = fruits.concat(
     'cherry',
     'cranberry'
 );
-console.log(concatFruits);
+console.log("After concat →", concatFruits);
 
 // --------------------------------------------------
-// slice() → extract a portion of array
+// slice() → Extracts portion of array (startIndex, endIndex)
 // --------------------------------------------------
 
 let sliceFruits = concatFruits.slice(2, 5);
-console.log(sliceFruits);
+console.log("After slice(2, 5) →", sliceFruits);
 
 // --------------------------------------------------
-// join() → join array elements into a string
+// join() → Converts array into string, with optional separator
 // --------------------------------------------------
 
 let joinFruits = concatFruits.join('-');
-console.log(joinFruits);
-console.log(typeof joinFruits);
+console.log("After join('-') →", joinFruits, "| Type:", typeof joinFruits);
 
 // --------------------------------------------------
-// sort() → sort array elements
+// sort() → Sorts array elements (alphabetical for strings)
 // --------------------------------------------------
 
 let sortArray = concatFruits.sort();
-console.log(sortArray);
+console.log("After sort() →", sortArray);
 
-// sort() for numbers
+// sort() for numbers → Needs a compare function (a - b for ascending)
 let sortArray1 = concatFruits.sort(function (a, b) {
     return a - b;
 });
-console.log(sortArray1);
+console.log("After numeric sort() →", sortArray1); // works only with numbers
 
 // --------------------------------------------------
-// reverse() → reverse array elements
+// reverse() → Reverses array elements
 // --------------------------------------------------
 
-let reveredFruits = concatFruits.reverse();
-console.log(reveredFruits);
+let reversedFruits = concatFruits.reverse();
+console.log("After reverse() →", reversedFruits);
 
 // --------------------------------------------------
-// Multi-dimensional array
+// Multi-dimensional array → Array of arrays
 // --------------------------------------------------
 
 let c1 = [1, 2, 3];
@@ -105,26 +106,24 @@ let c2 = [4, 5, 6];
 let c3 = [7, 8, 9];
 
 let merge = [c1, c2, c3];
-console.log(merge);
+console.log("Multi-dimensional array →", merge);
 
 // --------------------------------------------------
-// Array destructuring (manual)
+// Array destructuring (manual) → Extract elements into variables
 // --------------------------------------------------
 
 let p1 = merge[0];
 let p2 = merge[1];
 let p3 = merge[2];
 
-console.log(p1);
-console.log(p2);
-console.log(p3);
+console.log("Destructured arrays →", p1, p2, p3);
 
 // --------------------------------------------------
-// Spread syntax
+// Spread syntax → Combine arrays or values easily
 // --------------------------------------------------
 
 let list1 = ['A', 'B', 'C'];
 let list2 = ['D', 'E', 'F'];
 
 let finalList = [...list1, ...list2];
-console.log(finalList);
+console.log("After spread →", finalList);

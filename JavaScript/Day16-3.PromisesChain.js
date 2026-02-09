@@ -1,56 +1,53 @@
 // ==================================================
 // Promise Chaining Example
-// Promise chaining is a cleaner way to handle async operations compared to nested callbacks
+// Promise chaining is a cleaner way to handle async operations
+// compared to deeply nested callbacks (callback hell)
 // ==================================================
-//normal function
-// function getData(dataId){
-//     return new Promise((resolve, reject) => {
-//         setTimeout(() => {
-//             console.log("getting data for " + dataId);
-//             resolve("success");
-//             reject("failed");
-//         }, 3000);
-//     });
-// };
 
-//advanced arrow function
-let getData = (dataId)=>{
+// Function to simulate async data fetching
+let getData = (dataId) => {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
-            console.log("getting data for " + dataId);
-            resolve("success");
-            reject("failed");
-        }, 3000);
+            console.log(`✅ Fetched data for ID ${dataId}`);
+            resolve(`Data ${dataId} success`);
+            // reject(`Data ${dataId} failed`); // Uncomment to test error handling
+        }, 2000);
     });
 };
 
-// --------------------------------------------------
-// Traditional way to handle promise chaining
-// (nested then calls — similar to callback hell)
-// --------------------------------------------------
-
+// ==================================================
+// 1️⃣ Nested then calls (still messy — like callback hell)
+// ==================================================
 getData(1).then((res) => {
-    console.log("getting data for id 2", res);
+    console.log("Nested then result:", res);
     getData(2).then((res) => {
-        console.log("getting data for id 2", res);
+        console.log("Nested then result:", res);
         getData(3).then((res) => {
-            console.log("getting data for id 3", res);
+            console.log("Nested then result:", res);
         });
     });
 });
 
-// --------------------------------------------------
-// Smart way to handle promise chaining
-// (returning promises for cleaner flow)
-// --------------------------------------------------
-
+// ==================================================
+// 2️⃣ Clean Promise chaining (flat, readable)
+// ==================================================
 getData(1)
     .then((res) => {
-        return getData(2);
+        console.log("Chained result:", res);
+        return getData(2); // return the next promise
     })
     .then((res) => {
-        return getData(3);
+        console.log("Chained result:", res);
+        return getData(3); // return the next promise
     })
     .then((res) => {
+        console.log("Chained result:", res);
         return getData(4);
+    })
+    .then((res) => {
+        console.log("Chained result:", res);
+        console.log("✅ All data fetched in sequence");
+    })
+    .catch((err) => {
+        console.log("❌ Error occurred:", err);
     });

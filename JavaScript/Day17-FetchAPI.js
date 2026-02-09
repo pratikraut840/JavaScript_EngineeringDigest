@@ -2,6 +2,7 @@
 // Fetch API Example
 // ==================================================
 
+// Base URL for the API
 // const baseURL = 'https://meowfacts.herokuapp.com/';
 const baseURL = "https://openlibrary.org/people/mekBot/books/want-to-read.json";
 
@@ -9,41 +10,54 @@ const baseURL = "https://openlibrary.org/people/mekBot/books/want-to-read.json";
 // Using Promise Chaining
 // --------------------------------------------------
 
-function getbooks() {
-    console.log('Fetching data using promise chaining..');
+function getBooks() {
+    console.log('📡 Fetching data using Promise chaining...');
 
+    // fetch() returns a Promise
     fetch(baseURL)
         .then((response) => {
+            // Convert response to JSON (also returns a Promise)
             return response.json();
         })
         .then((finalData) => {
-            console.log(finalData);
+            console.log('✅ Full API response:', finalData);
 
-            let reading_log = finalData.reading_log_entries;
-            console.log(reading_log);
+            // Extract reading log entries
+            let readingLog = finalData.reading_log_entries;
+            console.log('📚 Reading log entries:', readingLog);
+        })
+        .catch((err) => {
+            console.error('❌ Error fetching data:', err);
         });
 }
 
-// Calling function
-getbooks();
+// Call the function
+getBooks();
 
 // --------------------------------------------------
 // Using Async / Await
 // --------------------------------------------------
 
+// Async arrow function
 let getApiData = async () => {
-    console.log('fetching data using async await...');
+    console.log('📡 Fetching data using Async / Await...');
 
-    // use await as API takes time and is asynchronous
-    let response = await fetch(baseURL);
+    try {
+        // Await fetch() to resolve
+        let response = await fetch(baseURL);
 
-    // use await as json() method is asynchronous
-    let jsonResponse = await response.json();
-    console.log(jsonResponse);
+        // Await conversion to JSON
+        let jsonResponse = await response.json();
+        console.log('✅ Full API response:', jsonResponse);
 
-    let reading_log = jsonResponse.reading_log_entries[0].logged_edition;
-    console.log('final fact is =' + reading_log);
+        // Extract first logged edition
+        let readingLog = jsonResponse.reading_log_entries[0].logged_edition;
+        console.log('📖 First logged edition:', readingLog);
+
+    } catch (err) {
+        console.error('❌ Error fetching data:', err);
+    }
 };
 
-// Calling async function
+// Call async function
 getApiData();

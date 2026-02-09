@@ -2,26 +2,53 @@
 // Hoisting in JavaScript
 // ==================================================
 
-// Hoisting in JavaScript means variables and function
-// declarations are moved to the top of their scope
-// during the compilation phase, allowing them to be
-// referenced before they are declared in the code.
+// Hoisting → JavaScript's default behavior of moving
+// variable and function declarations to the top of their scope
+// during the compilation phase. This allows variables
+// and functions to be referenced before they are declared.
 
 // --------------------------------------------------
-// Example (commented to avoid runtime error)
+// Example with var (works because var is hoisted)
 // --------------------------------------------------
 
-// console.log(a); // Called before declaration
-// let a = 10;     // Declared later
-
-// During compilation, JavaScript treats it like this:
-// let a;
-// console.log(a); // undefined
-// a = 10;
+console.log(x); // Output: undefined (declaration hoisted, value not yet assigned)
+var x = 100;
+console.log(x); // Output: 100
 
 // --------------------------------------------------
-// Valid example
+// Example with let and const (temporal dead zone)
+// --------------------------------------------------
+
+// let and const are also hoisted, but they are in "temporal dead zone (TDZ)"
+// Accessing them before declaration throws ReferenceError
+
+// console.log(y); // ReferenceError
+// let y = 50;
+
+// console.log(z); // ReferenceError
+// const z = 60;
+
+// --------------------------------------------------
+// Function Hoisting
+// --------------------------------------------------
+
+// Function declarations are fully hoisted, so they can be called before declaration
+greet(); // Output: "Hello, Hoisting!"
+
+function greet() {
+    console.log("Hello, Hoisting!");
+}
+
+// Function expressions (assigned to variables) are not hoisted
+// console.log(sayHello()); // Error if uncommented
+let sayHello = function () {
+    return "Hi!";
+};
+console.log(sayHello()); // Output: "Hi!"
+
+// --------------------------------------------------
+// Working example with let (recommended modern JS)
 // --------------------------------------------------
 
 let b = 90;
-console.log(b);
+console.log("Modern let variable b =", b);
