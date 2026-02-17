@@ -64,10 +64,10 @@ let concatFruits = fruits.concat(
 console.log("After concat →", concatFruits);
 
 // --------------------------------------------------
-// slice() → Extracts portion of array (startIndex, endIndex)
+// slice() → Extracts portion of array (startIndex, InclusiveEndIndex)
 // --------------------------------------------------
 
-let sliceFruits = concatFruits.slice(2, 5);
+let sliceFruits = concatFruits.slice(2,5);
 console.log("After slice(2, 5) →", sliceFruits);
 
 // --------------------------------------------------
